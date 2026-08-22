@@ -31,9 +31,5 @@
   "rewrites": [
     { "source": "/((?!assets/|sw\\.js|manifest\\.webmanifest|logo\\.svg).*)", "destination": "/index.html" }
   ],
-  "env": {
-    "VITE_CONVEX_URL": "@convex-url",
-    "VITE_SUPABASE_URL": "@supabase-url",
-    "VITE_SUPABASE_ANON_KEY": "@supabase-anon-key"
-  }
+
 }
