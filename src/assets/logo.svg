@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Outer orange circle -->
+  <circle cx="256" cy="256" r="250" fill="none" stroke="#EA580C" stroke-width="14"/>
+  <circle cx="256" cy="256" r="240" fill="white"/>
+  
+  <!-- Motto text arc: "Learners Today Leaders Tomorrow..." -->
+  <path id="topArc" d="M 80,256 A 176,176 0 0,1 432,256" fill="none"/>
+  <text font-family="Georgia, 'Times New Roman', serif" font-size="22" font-style="italic" fill="#333" letter-spacing="1">
+    <textPath href="#topArc" startOffset="50%" text-anchor="middle">Learners Today Leaders Tomorrow ...</textPath>
+  </text>
+
+  <!-- Inner circle for the emblem area -->
+  <circle cx="256" cy="230" r="110" fill="#FDEBD0" stroke="#D4845A" stroke-width="2"/>
+  
+  <!-- Torch handle -->
+  <rect x="244" y="145" width="24" height="70" rx="4" fill="#999" stroke="#666" stroke-width="1.5"/>
+  <rect x="238" y="210" width="36" height="8" rx="3" fill="#777" stroke="#555" stroke-width="1"/>
+  
+  <!-- Flame -->
+  <path d="M256 100 C240 130, 230 145, 244 155 L256 135 L268 155 C282 145, 272 130, 256 100Z" fill="#E63C12"/>
+  <path d="M256 110 C248 130, 242 140, 250 148 L256 132 L262 148 C270 140, 264 130, 256 110Z" fill="#F5A623"/>
+  <path d="M256 118 C252 132, 248 138, 253 144 L256 135 L259 144 C264 138, 260 132, 256 118Z" fill="#FFD700"/>
+
+  <!-- Open book -->
+  <path d="M190 225 Q220 200, 256 215 Q292 200, 322 225 L322 260 Q292 240, 256 255 Q220 240, 190 260 Z" fill="white" stroke="#333" stroke-width="2"/>
+  <!-- Book spine -->
+  <line x1="256" y1="215" x2="256" y2="255" stroke="#333" stroke-width="1.5"/>
+  <!-- Book page lines left -->
+  <line x1="200" y1="235" x2="248" y2="225" stroke="#999" stroke-width="0.8"/>
+  <line x1="200" y1="243" x2="248" y2="233" stroke="#999" stroke-width="0.8"/>
+  <line x1="200" y1="251" x2="248" y2="241" stroke="#999" stroke-width="0.8"/>
+  <!-- Book page lines right -->
+  <line x1="264" y1="225" x2="312" y2="235" stroke="#999" stroke-width="0.8"/>
+  <line x1="264" y1="233" x2="312" y2="243" stroke="#999" stroke-width="0.8"/>
+  <line x1="264" y1="241" x2="312" y2="251" stroke="#999" stroke-width="0.8"/>
+
+  <!-- Left bookmark ribbon -->
+  <path d="M195 218 L180 210 L185 230 L175 225 L180 245 L195 235 Z" fill="#333"/>
+  <!-- Right bookmark ribbon -->
+  <path d="M317 218 L332 210 L327 230 L337 225 L332 245 L317 235 Z" fill="#333"/>
+
+  <!-- "LEADS TO" ribbon left -->
+  <path d="M115 290 L175 270 L250 300 L175 310 Z" fill="#2C2C2C"/>
+  <text x="140" y="295" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white" letter-spacing="1">LEADS TO</text>
+  
+  <!-- "KNOWLEDGE" ribbon right -->
+  <path d="M262 300 L337 270 L397 290 L337 310 Z" fill="#2C2C2C"/>
+  <text x="288" y="295" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="white" letter-spacing="1">KNOWLEDGE</text>
+
+  <!-- "LEADS SCHOOL" text -->
+  <text x="256" y="345" text-anchor="middle" font-family="Arial Black, 'Arial Bold', sans-serif" font-size="38" font-weight="900" fill="#111" letter-spacing="2">LEADS SCHOOL</text>
+  
+  <!-- "SYSTEM" text with decorative lines -->
+  <line x1="145" y1="360" x2="200" y2="360" stroke="#D4A050" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <text x="256" y="368" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#111" letter-spacing="8">SYSTEM</text>
+  <line x1="312" y1="360" x2="367" y2="360" stroke="#D4A050" stroke-width="1.5" stroke-dasharray="3,2"/>
+
+  <!-- "ZEENAT CAMPUS" orange banner -->
+  <rect x="130" y="380" width="252" height="42" rx="4" fill="#EA580C"/>
+  <text x="256" y="407" text-anchor="middle" font-family="Arial Black, 'Arial Bold', sans-serif" font-size="24" font-weight="900" fill="white" letter-spacing="2">ZEENAT CAMPUS</text>
+</svg>
