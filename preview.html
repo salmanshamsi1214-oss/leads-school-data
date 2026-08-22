@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LEADS School System — Brochure</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--primary:#ea580c;--primary-light:#fb923c;--primary-dark:#c2410c;--accent:#f59e0b;--bg:#fffbf5;--card:#fff;--text:#1a1a1a;--muted:#6b7280;--border:#e5e7eb;--success:#059669;--danger:#dc2626;--info:#2563eb}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+
+/* ═══ DOWNLOAD BUTTON ═══ */
+.download-bar{position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,#1a1a1a,#292524);padding:12px 20px;display:flex;justify-content:center;gap:12px;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,0.2)}
+.download-bar .btn-dl{padding:10px 28px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;border:none;transition:all 0.2s;font-family:'Inter',sans-serif}
+.download-bar .btn-dl-primary{background:var(--primary);color:#fff}
+.download-bar .btn-dl-primary:hover{background:var(--primary-dark);transform:translateY(-2px);box-shadow:0 6px 20px rgba(234,88,12,0.3)}
+.download-bar .btn-dl-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.3)}
+.download-bar .btn-dl-outline:hover{border-color:var(--primary-light);color:var(--primary-light)}
+
+/* ═══ SCREEN STYLES ═══ */
+.hero{background:linear-gradient(135deg,#1a1a1a 0%,#292524 40%,#ea580c 100%);color:#fff;padding:60px 20px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(234,88,12,0.15) 0%,transparent 60%);animation:float 8s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(30px,-20px)}}
+.hero h1{font-size:clamp(28px,5vw,48px);font-weight:900;letter-spacing:-1px;margin-bottom:8px}
+.hero h1 span{color:#fb923c}
+.hero .subtitle{font-size:clamp(14px,2.5vw,20px);opacity:0.85;margin-bottom:6px}
+.hero .contact{font-size:13px;opacity:0.65}
+.hero .badge{display:inline-block;background:rgba(251,146,60,0.2);border:1px solid rgba(251,146,60,0.3);color:#fb923c;padding:4px 14px;border-radius:99px;font-size:12px;font-weight:600;margin-top:12px}
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+.stats-bar{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px;margin:-30px auto 40px;position:relative;z-index:2}
+.stat-card{background:var(--card);border-radius:14px;padding:20px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,0.08);border:1px solid var(--border)}
+.stat-card .icon{font-size:28px;margin-bottom:6px}
+.stat-card .num{font-size:28px;font-weight:800;color:var(--primary)}
+.stat-card .label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px}
+.section{margin:40px 0}
+.section h2{font-size:24px;font-weight:800;margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.section h2 .dot{width:8px;height:8px;border-radius:50%;background:var(--primary)}
+.module-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}
+.module-card{background:var(--card);border-radius:14px;border:1px solid var(--border);overflow:hidden;transition:transform 0.2s,box-shadow 0.2s}
+.module-card:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(0,0,0,0.1)}
+.module-card .head{padding:16px 20px 10px;display:flex;align-items:center;gap:10px}
+.module-card .head .icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.module-card .head h3{font-size:15px;font-weight:700}
+.module-card .head .count{font-size:11px;color:var(--muted);font-weight:500}
+.module-card ul{padding:0 20px 16px;list-style:none}
+.module-card ul li{font-size:13px;color:#444;padding:3px 0;display:flex;align-items:center;gap:6px}
+.module-card ul li::before{content:'✓';color:var(--success);font-weight:700;font-size:11px}
+.icon-orange{background:linear-gradient(135deg,#fff7ed,#ffedd5);color:var(--primary)}
+.icon-green{background:linear-gradient(135deg,#ecfdf5,#d1fae5);color:var(--success)}
+.icon-blue{background:linear-gradient(135deg,#eff6ff,#dbeafe);color:var(--info)}
+.icon-purple{background:linear-gradient(135deg,#faf5ff,#f3e8ff);color:#7c3aed}
+.icon-red{background:linear-gradient(135deg,#fef2f2,#fee2e2);color:var(--danger)}
+.icon-amber{background:linear-gradient(135deg,#fffbeb,#fef3c7);color:#d97706}
+.icon-teal{background:linear-gradient(135deg,#f0fdfa,#ccfbf1);color:#0d9488}
+.features-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:30px 0}
+.feature-item{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 16px}
+.feature-item .fi-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.feature-item .fi-text h4{font-size:13px;font-weight:700}
+.feature-item .fi-text p{font-size:11px;color:var(--muted)}
+.login-section{text-align:center;padding:60px 20px;background:linear-gradient(135deg,#1a1a1a,#292524);color:#fff;margin-top:40px}
+.login-section h2{color:#fff;font-size:28px;margin-bottom:10px}
+.login-section p{opacity:0.7;max-width:500px;margin:0 auto 24px;font-size:15px}
+.btn{display:inline-block;padding:14px 36px;border-radius:12px;font-size:15px;font-weight:700;text-decoration:none;transition:all 0.2s;cursor:pointer;border:none}
+.btn-primary{background:var(--primary);color:#fff}
+.btn-primary:hover{background:var(--primary-dark);transform:translateY(-2px);box-shadow:0 6px 20px rgba(234,88,12,0.3)}
+.btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.3)}
+.btn-outline:hover{border-color:var(--primary-light);color:var(--primary-light)}
+.footer{text-align:center;padding:24px;color:var(--muted);font-size:12px;border-top:1px solid var(--border);padding-bottom:80px}
+@media(max-width:640px){.module-grid{grid-template-columns:1fr}.stats-bar{grid-template-columns:repeat(3,1fr)}.hero{padding:40px 16px}}
+
+/* ═══════════════════════════════════════════════════════════════
+   PRINT / PDF STYLES — Optimized for A4 Brochure
+   ═══════════════════════════════════════════════════════════════ */
+@media print{
+  @page{size:A4;margin:15mm 12mm 15mm 12mm}
+  body{background:#fff!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;color-adjust:exact}
+  .download-bar{display:none!important}
+
+  /* Page break helpers */
+  .page-break-before{page-break-before:always}
+  .page-break-after{page-break-after:always}
+  .no-break{page-break-inside:avoid}
+
+  /* Hero becomes compact cover */
+  .hero{padding:30px 20px;animation:none!important}
+  .hero::before{animation:none!important;display:none}
+  .hero h1{font-size:32px}
+  .hero .subtitle{font-size:16px}
+
+  /* Stats bar on same line */
+  .stats-bar{margin:-15px auto 20px;grid-template-columns:repeat(5,1fr);gap:8px}
+  .stat-card{padding:12px 8px}
+  .stat-card .num{font-size:22px}
+  .stat-card .label{font-size:9px}
+
+  /* Features row stays compact */
+  .features-row{grid-template-columns:repeat(4,1fr);gap:8px;margin:16px 0}
+  .feature-item{padding:8px 10px;gap:8px}
+  .feature-item .fi-icon{width:28px;height:28px;font-size:14px}
+  .feature-item .fi-text h4{font-size:11px}
+  .feature-item .fi-text p{font-size:9px}
+
+  /* Section titles smaller */
+  .section{margin:20px 0}
+  .section h2{font-size:18px;margin-bottom:12px}
+  .section h2 .dot{width:6px;height:6px}
+
+  /* Module cards compact */
+  .module-grid{grid-template-columns:repeat(3,1fr);gap:10px}
+  .module-card{border-radius:10px}
+  .module-card .head{padding:10px 14px 6px}
+  .module-card .head .icon{width:32px;height:32px;font-size:16px;border-radius:8px}
+  .module-card .head h3{font-size:12px}
+  .module-card .head .count{font-size:9px}
+  .module-card ul{padding:0 14px 10px}
+  .module-card ul li{font-size:10px;padding:2px 0}
+
+  /* Login CTA becomes info box */
+  .login-section{padding:20px;margin-top:20px}
+  .login-section h2{font-size:20px}
+  .login-section p{font-size:12px;margin-bottom:12px}
+  .btn{padding:8px 24px;font-size:12px}
+  .footer{padding:12px;padding-bottom:12px;font-size:10px}
+
+  /* Page header/footer via CSS */
+  .hero::after{content:'';display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- DOWNLOAD BAR (hidden in print) -->
+<div class="download-bar" id="downloadBar">
+  <button class="btn-dl btn-dl-primary" onclick="downloadPDF()">📄 Download PDF Brochure</button>
+  <button class="btn-dl btn-dl-outline" onclick="window.print()">🖨️ Print</button>
+  <a href="/auth" class="btn-dl btn-dl-outline" style="text-decoration:none;display:flex;align-items:center;gap:6px">🏫 Open App</a>
+</div>
+
+<!-- PAGE 1: COVER -->
+<div class="hero">
+  <h1><span>LEADS</span> School System</h1>
+  <p class="subtitle">Zeenat Campus — Dera Ghazi Khan</p>
+  <p class="contact">📍 Kangan Road, Near Jalbani Petrol Pump &nbsp;|&nbsp; 📞 0332-6241440 &nbsp;|&nbsp; 0330-9082020</p>
+  <span class="badge">🏫 Production-Ready School Management System</span>
+</div>
+
+<div class="container">
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat-card no-break"><div class="icon">👨‍🎓</div><div class="num">25+</div><div class="label">Modules</div></div>
+  <div class="stat-card no-break"><div class="icon">📋</div><div class="num">15+</div><div class="label">Print Formats</div></div>
+  <div class="stat-card no-break"><div class="icon">📊</div><div class="num">10+</div><div class="label">Reports</div></div>
+  <div class="stat-card no-break"><div class="icon">📱</div><div class="num">PWA</div><div class="label">Installable</div></div>
+  <div class="stat-card no-break"><div class="icon">🔐</div><div class="num">RBAC</div><div class="label">Permissions</div></div>
+</div>
+
+<!-- KEY FEATURES -->
+<div class="features-row no-break">
+  <div class="feature-item"><div class="fi-icon icon-orange">💰</div><div class="fi-text"><h4>Fee Management</h4><p>Full lifecycle: challan, collection, defaulters, ledger</p></div></div>
+  <div class="feature-item"><div class="fi-icon icon-green">📋</div><div class="fi-text"><h4>Attendance</h4><p>Daily + monthly reports + late comers</p></div></div>
+  <div class="feature-item"><div class="fi-icon icon-blue">📝</div><div class="fi-text"><h4>Exams &amp; Results</h4><p>Report cards, progress reports, class results</p></div></div>
+  <div class="feature-item"><div class="fi-icon icon-purple">📅</div><div class="fi-text"><h4>Lesson Planner</h4><p>Daily + weekly planning with print formats</p></div></div>
+  <div class="feature-item"><div class="fi-icon icon-amber">📚</div><div class="fi-text"><h4>Syllabus Tracking</h4><p>Term-wise completion with exam prep</p></div></div>
+  <div class="feature-item"><div class="fi-icon icon-red">📨</div><div class="fi-text"><h4>WhatsApp Alerts</h4><p>Auto attendance + fee reminders to parents</p></div></div>
+  <div class="feature-item"><div class="fi-icon icon-teal">🖨️</div><div class="fi-text"><h4>Print Formats</h4><p>15+ printable formats: ID cards, TC, slips</p></div></div>
+  <div class="feature-item"><div class="fi-icon icon-orange">📊</div><div class="fi-text"><h4>Homework Tracker</h4><p>Assign, collect, bulk mark submissions</p></div></div>
+</div>
+
+<!-- ═══ PAGE 2: STUDENT & STAFF ═══ -->
+<div class="section page-break-before">
+  <h2><span class="dot"></span> Student &amp; Staff Management</h2>
+  <div class="module-grid">
+    <div class="module-card no-break">
+      <div class="head"><div class="icon icon-orange">👨‍🎓</div><div><h3>Students</h3><div class="count">Full CRUD + Profile</div></div></div>
+      <ul>
+        <li>Add / Edit / Search students</li>
+        <li>Student profile with attendance + fees</li>
+        <li>Bulk Import from CSV</li>
+        <li>Bulk Promotion with fee carry-forward</li>
+        <li>Sibling tracking + discount</li>
+        <li>Gender, blood group, documents</li>
+        <li>Early departure / leaving workflow</li>
+      </ul>
+    </div>
+    <div class="module-card no-break">
+      <div class="head"><div class="icon icon-green">👩‍🏫</div><div><h3>Teachers &amp; Staff</h3><div class="count">Profiles + Attendance</div></div></div>
+      <ul>
+        <li>Teacher profiles with qualifications</li>
+        <li>Teacher attendance tracking</li>
+        <li>Staff appointment register</li>
+        <li>Payroll / salary slips</li>
+        <li>Leave request management</li>
+        <li>Role-based access control</li>
+        <li>Teacher performance appraisal</li>
+      </ul>
+    </div>
+    <div class="module-card no-break">
+      <div class="head"><div class="icon icon-blue">🏫</div><div><h3>Classes &amp; Sections</h3><div class="count">Organization</div></div></div>
+      <ul>
+        <li>Class creation with sections</li>
+        <li>Class-wise fee structures</li>
+        <li>Class teacher assignment</li>
+        <li>Timetable management</li>
+        <li>Academic sessions &amp; terms</li>
+        <li>Student promotion tracking</li>
+        <li>Dashboard with class stats</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ PAGE 3: FEE MANAGEMENT ═══ -->
+<div class="section page-break-before">
+  <h2><span class="dot"></span> Fee Management</h2>
+  <div class="module-grid">
+    <div class="module-card no-break">
+      <div class="head"><div class="icon icon-amber">💰</div><div><h3>Fee Structures &amp; Collection</h3><div class="count">Monthly + Annual + Admission</div></div></div>
+      <ul>
+        <li>Monthly fee / Annual fee / Admission fee</li>
+        <li>Fee Challan &amp; Slip generation</li>
+        <li>Fee collection with receipt numbers</li>
+        <li>Partial payment support</li>
+        <li>Advance payment recording</li>
+        <li>Sibling discount auto-apply</li>
+        <li>Fee concession / discounts</li>
+      </ul>
+    </div>
+    <div class="module-card no-break">
+      <div class="head"><div class="icon icon-red">⚠️</div><div><h3>Fines, Defaulters &amp; Reports</h3><div class="count">Financial Control</div></div></div>
+      <ul>
+        <li>Automatic fine charges after due date</li>
+        <li>Fee waiver management</li>
+        <li>Defaulter calculation (multi-month)</li>
+        <li>Collection report by class</li>
+        <li>Daily cash closing report</li>
+        <li>Student ledger (per student)</li>
+        <li>Fee audit logs (immutable)</li>
+      </ul>
+    </div>
+    <div class="module-card no-break">
+      <div class="head"><div class="icon icon-teal">🖨️</div><div><h3>Print &amp; Download</h3><div class="count">Challans + Receipts + PDF</div></div></div>
+      <ul>
+        <li>Class-wise fee challan (A4 print)</li>
+        <li>Individual fee slips</li>
+        <li>Fee receipt generation</li>
+        <li>Download as HTML file</li>
+        <li>Download as PDF</li>
+        <li>WhatsApp fee reminders</li>
+        <li>Bulk print all slips</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ PAGE 4: ACADEMICS ═══ -->
+<div class="section page-break-before">
+  <h2><span class="dot"></span> Academics</h2>
+  <div class="module-grid">
+    <div class="module-card no-break">
+      <div class="head"><div class="icon icon-purple">📝</div><div><h3>Exams &amp; Results</h3><div class="count">Tests + Exams + Report Cards</div></div></div>
+      <ul>
+        <li>Daily / Weekly tests</li>
+        <li>Monthly / Mid-term / Final exams</li>
+        <li>Written + Oral + Practical marks</li>
+        <li>Subject-wise grading</li>
+        <li>Report card generation</li>
+        <li>Progress report (term-wise)</li>
+        <li>Class result + position holders</li>
+        <li>Result PDF / Print</li>
+      </ul>
+    </div>
+    <div class="module-card no-break">
+      <div class="head"><div class="icon icon-blue">📅</div><div><h3>Lesson Planner</h3><div class="count">Weekly + Daily Plans</div></div></div>
+      <ul>
+        <li>Daily lesson plan with all details</li>
+        <li>Weekly view for class/subject</li>
+        <li>Teaching methods &amp; activities</li>
+        <li>Timing breakdown (starter → homework)</li>
+        <li>Teacher reflection section</li>
+        <li>Coordinator + Principal approval</li>
+        <li>Print format with full A4 layout</li>
+      </ul>
+    </div>
+    <div class="module-card no-break">
+      <div class="head"><div class="icon icon-amber">📚</div><div><h3>Syllabus Management</h3><div class="count">1st / 2nd / Final Term</div></div></div>
+      <ul>
+        <li>Term-wise syllabus tracking</li>
+        <li>Written / Oral / Practical breakdown</li>
+        <li>Chapter completion tracking</li>
+        <li>Syllabus progress % dashboard</li>
+        <li>Exam preparation tracking</li>
+        <li>Weak areas identification</li>
+        <li>Approval signatures</li>
+      </ul>
+    </div>
+    <div class="module-card no-break">
+      <div class="head"><div class="icon icon-green">📊</div><div><h3>Homework &amp; Diary</h3><div class="count">Daily Assignment Tracking</div></div></div>
+      <ul>
+        <li>Assign homework to class/section</li>
+        <li>Auto-create pending submissions</li>
+        <li>Bulk mark all submitted</li>
+        <li>Per-student marks + remarks</li>
+        <li>Daily diary (topics covered)</li>
+        <li>Weekly diary (per subject)</li>
+        <li>Notebook check tracking</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ PAGE 5: PRINT FORMATS ═══ -->
+<div class="section page-break-before">
+  <h2><span class="dot"></span> Print Formats (15+)</h2>
+  <div class="module-grid">
+    <div class="module-card no-break">
+      <div class="head"><div class="icon icon-orange">🖨️</div><div><h3>Administrative</h3><div class="count">Print + PDF + HTML Download</div></div></div>
+      <ul>
+        <li>📋 Attendance Register</li>
+        <li>💰 Fee Slip (classwise bulk)</li>
+        <li>🪪 Student ID Card (front/back)</li>
+        <li>📜 Transfer Certificate</li>
+        <li>🎓 Report Card (exam-based)</li>
+        <li>⭐ Performance Appraisal</li>
+        <li>👤 Staff Appointment Register</li>
+      </ul>
+    </div>
+    <div class="module-card no-break">
+      <div class="head"><div class="icon icon-blue">🖨️</div><div><h3>Registers</h3><div class="count">Blank Formats for Office Use</div></div></div>
+      <ul>
+        <li>📊 Teacher Performance Register</li>
+        <li>🚶 Visitor Register</li>
+        <li>👨‍👩‍👧 Parent Meeting Register</li>
+        <li>⚠️ Student Discipline Register</li>
+        <li>📝 Daily Lesson Plan Format</li>
+        <li>📚 Syllabus Tracking Format</li>
+        <li>📥 All downloadable as HTML files</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ PAGE 6: COMMUNICATION & ADMIN ═══ -->
+<div class="section page-break-before">
+  <h2><span class="dot"></span> Communication &amp; Admin</h2>
+  <div class="module-grid">
+    <div class="module-card no-break">
+      <div class="head"><div class="icon icon-green">📨</div><div><h3>Messages &amp; Notifications</h3><div class="count">WhatsApp + SMS</div></div></div>
+      <ul>
+        <li>Auto attendance alerts to parents</li>
+        <li>Fee reminders &amp; fine alerts</li>
+        <li>Bulk WhatsApp reminders</li>
+        <li>Birthday notifications</li>
+        <li>Notice board / circulars</li>
+        <li>Message history with status</li>
+        <li>Multi-channel support</li>
+      </ul>
+    </div>
+    <div class="module-card no-break">
+      <div class="head"><div class="icon icon-purple">🔐</div><div><h3>Administration</h3><div class="count">Roles + Reports + Dashboard</div></div></div>
+      <ul>
+        <li>Role-based access (10 roles)</li>
+        <li>Admin / Principal / Teacher views</li>
+        <li>Parent portal view</li>
+        <li>Staff &amp; role management</li>
+        <li>Academic session management</li>
+        <li>Expense tracking &amp; payroll</li>
+        <li>Comprehensive dashboard</li>
+      </ul>
+    </div>
+    <div class="module-card no-break">
+      <div class="head"><div class="icon icon-teal">📱</div><div><h3>Technical Features</h3><div class="count">Production-Ready</div></div></div>
+      <ul>
+        <li>PWA (installable on phone/desktop)</li>
+        <li>Mobile responsive (all screens)</li>
+        <li>3D glass morphism theme</li>
+        <li>Real-time Convex backend</li>
+        <li>CSV export for all reports</li>
+        <li>Print-ready A4 templates</li>
+        <li>Offline support (PWA cache)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<!-- LOGIN CTA -->
+<div class="login-section">
+  <h2>Ready to Manage Your School?</h2>
+  <p>Sign in to access the complete school management system with all modules, reports, and print formats.</p>
+  <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+    <a href="/auth" class="btn btn-primary">Sign In to Dashboard</a>
+    <a href="/dashboard" class="btn btn-outline">View Dashboard</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p><strong>LEADS School System</strong> — Zeenat Campus, D.G. Khan &nbsp;|&nbsp; Built with React + Convex + TypeScript</p>
+  <p style="margin-top:4px">All modules are fully functional with database operations, PDF generation, and real-time data.</p>
+</div>
+
+<script>
+function downloadPDF() {
+  window.print();
+}
+</script>
+</body>
+</html>
