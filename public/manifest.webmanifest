@@ -1,0 +1,23 @@
+{
+  "name": "LEADS School System — Zeenat Campus",
+  "short_name": "LEADS School",
+  "description": "Attendance management for LEADS School System, Zeenat Campus, Dera Ghazi Khan.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#EA580C",
+  "icons": [
+    {
+      "src": "/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/logo.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}
